@@ -5,12 +5,17 @@
 :root {
   --background: #ffffff;
   --foreground: #1b1b1b;
+  color:#000000;
+  box-sizing: border-box;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1b1b1b;
     --foreground: #ededed;
+    color:#ffffff
   }
 }
 
