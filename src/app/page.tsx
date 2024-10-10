@@ -12,11 +12,11 @@ export default function Home() {
       <Avatar />
 
       <section className="flex flex-1">
-        <div className="w-full grid grid-cols-3 gap-5 content-center justify-items-center p-2">
+        <div className="w-full grid grid-cols-3 lg:grid-cols-6 gap-y-10 content-center justify-items-center p-2">
           {/* Button 1 - pet */}
           <Link
             href={'/pet'}
-            className="size-20 md:size-28 lg:size-44 bg-blue justify-center flex flex-col p-3 rounded-xl">
+            className="size-24 sm:size-32 lg:size-36 bg-blue justify-center flex flex-col p-3 rounded-xl border-2 border-black">
             <div className="relative flex-1 items-center justify-center">
 
               <Image
@@ -31,7 +31,7 @@ export default function Home() {
           {/* Button 2 - tutor */}
           <Link
             href={'/tutor'}
-            className="size-20 md:size-28 lg:size-44 bg-blue justify-center flex flex-col p-3 rounded-xl">
+            className="size-24 md:size-28 lg:size-36 bg-blue justify-center flex flex-col p-3 rounded-xl border-2 border-black">
             <div className="relative flex-1 items-center justify-center">
 
               <Image
@@ -46,7 +46,7 @@ export default function Home() {
           {/* Button 3 - settings */}
           <Link
             href={'/settings'}
-            className="size-20 md:size-28 lg:size-44 bg-blue justify-center flex flex-col p-3 rounded-xl">
+            className="size-24 md:size-28 lg:size-36 bg-blue justify-center flex flex-col p-3 rounded-xl border-2 border-black">
             <div className="relative flex-1 items-center justify-center">
 
               <Image
@@ -61,7 +61,7 @@ export default function Home() {
           {/* button 4 Saúde */}
           <Link
             href={'/health'}
-            className="size-20 md:size-28 lg:size-44 bg-blue justify-center flex flex-col p-3 rounded-xl">
+            className="size-24 md:size-28 lg:size-36 bg-blue justify-center flex flex-col p-3 rounded-xl border-2 border-black">
             <div className="relative flex-1 items-center justify-center">
 
               <Image
@@ -76,7 +76,7 @@ export default function Home() {
           {/* button 5 Remédios */}
           <Link
             href={'/remedy'}
-            className="size-20 md:size-28 lg:size-44 bg-blue justify-center flex flex-col p-3 rounded-xl">
+            className="size-24 md:size-28 lg:size-36 bg-blue justify-center flex flex-col p-3 rounded-xl border-2 border-black">
             <div className="relative flex-1 items-center justify-center">
 
               <Image
@@ -91,7 +91,7 @@ export default function Home() {
           {/* button 6 Exames */}
           <Link
             href={'/exams'}
-            className="size-20 md:size-28 lg:size-44 bg-blue justify-center flex flex-col p-3 rounded-xl">
+            className="size-24 md:size-28 lg:size-36 bg-blue justify-center flex flex-col p-3 rounded-xl border-2 border-black">
             <div className="relative flex-1 items-center justify-center">
 
               <Image
