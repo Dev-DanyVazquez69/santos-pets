@@ -4,7 +4,6 @@ import React, { useState } from "react"
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from "next/image";
-import avatar from "@/assets/avatar.png"
 
 interface HeaderProps {
     title: string
@@ -43,12 +42,12 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
                     </ul>
                 </div>
                 <div className="bg-blue flex-1 text-center rounded-md max-w-sm lg:max-w-36 p-1">
-                    <h1 className="text-base">{title}</h1>
+                    <h1 className="text-base font-bold">{title}</h1>
                 </div>
                 <div className="flex flex-1 justify-end">
                     <div className="rounded-full h-10 w-10 bg-slate-600">
                         <Image
-                            src={avatar}
+                            src={'/assets/avatar.png'}
                             alt={"Avatar"}
                             width={50}
                             height={50}

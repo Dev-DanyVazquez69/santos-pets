@@ -2,7 +2,7 @@ import withPWA from 'next-pwa';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,      // Habilita o modo estrito do React
+    reactStrictMode: false,      // Habilita o modo estrito do React
     swcMinify: true,            // Habilita minificação com SWC para melhor performance
     compiler: {
         removeConsole: process.env.NODE_ENV !== "development", // Remove console.logs no ambiente de produção
@@ -27,7 +27,9 @@ const nextConfig = {
 const securityHeaders = [
   {
     key: 'Content-Security-Policy',
-    value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self';",
+    value: process.env.NODE_ENV === "development"
+    ? "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self';"
+    : "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self';"
   },
   {
     //Controla a quantidade de informações do referenciador incluídas nas solicitações, equilibrando segurança e funcionalidade.
