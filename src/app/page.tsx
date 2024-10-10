@@ -7,7 +7,7 @@ export default function Home() {
 
 
   return (
-    <main className="min-h-screen flex flex-col bg-gradient-to-b from-background from-15% via-blue via-45% to-foreground to-90%">
+    <main className="min-h-screen flex flex-col bg-gradient-to-b from-foreground from-0% via-sky-500 via-15% to-background to-65% ">
       <Header title="Inicio" />
       <Avatar />
 
