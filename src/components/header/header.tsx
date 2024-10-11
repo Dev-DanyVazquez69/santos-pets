@@ -26,17 +26,17 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
                     </button>
                 </div>
                 <div className="hidden lg:flex flex-1 items-center justify-center">
-                    <ul className="flex flex-row gap-5 font-md text-lg justify-between">
-                        <li className="text-center hover:animate-pulse">
+                    <ul className="flex flex-row gap-5 font-md text-xl justify-between text-background">
+                        <li className="hover:animate-pulse">
                             <a href="#">Inicio</a>
                         </li>
-                        <li className="text-center hover:animate-pulse">
+                        <li className="hover:animate-pulse">
                             <a href="#">Saúde</a>
                         </li>
-                        <li className="text-center hover:animate-pulse">
+                        <li className="hover:animate-pulse">
                             <a href="#">Remédio</a>
                         </li>
-                        <li className="text-center hover:animate-pulse">
+                        <li className="hover:animate-pulse">
                             <a href="#">Exame</a>
                         </li>
                     </ul>
