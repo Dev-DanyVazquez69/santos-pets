@@ -22,7 +22,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
             <header className="px-5 pt-5 lg:h-22 xl:h-24 flex items-center justify-items-center bg-transparent">
                 <div className="flex flex-1 lg:hidden">
                     <button onClick={handleModalMenu}>
-                        <MenuIcon className="size-6 lg:size-10 text-background" />
+                        <MenuIcon className="size-6 lg:size-10 text-foreground" />
                     </button>
                 </div>
                 <div className="hidden lg:flex flex-1 items-center justify-center">
@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
                     </ul>
                 </div>
                 <div className="bg-blue flex-1 text-center rounded-md max-w-sm lg:max-w-36 p-1 border border-black">
-                    <h1 className="text-base font-bold">{title}</h1>
+                    <h1 className="text-base text-background font-bold">{title}</h1>
                 </div>
                 <div className="flex flex-1 justify-end">
                     <div className="rounded-full h-10 w-10 bg-slate-600">

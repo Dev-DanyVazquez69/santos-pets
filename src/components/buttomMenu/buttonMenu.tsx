@@ -20,7 +20,7 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = (props) => {
                     className="object-contain"
                 />
             </div>
-            <p className="text-center text-xs md:text-base font-semibold text-black">{props.title}</p>
+            <p className="text-center text-xs md:text-base font-semibold text-background">{props.title}</p>
         </Link>
     )
 }
