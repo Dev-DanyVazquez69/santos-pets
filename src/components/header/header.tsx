@@ -28,16 +28,16 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
                 <div className="hidden lg:flex flex-1 items-center justify-center">
                     <ul className="flex flex-row gap-5 font-md text-xl justify-between text-background">
                         <li className="hover:animate-pulse">
-                            <a href="#">Inicio</a>
+                            <a href="/">Inicio</a>
                         </li>
                         <li className="hover:animate-pulse">
-                            <a href="#">Saúde</a>
+                            <a href="health">Saúde</a>
                         </li>
                         <li className="hover:animate-pulse">
-                            <a href="#">Remédio</a>
+                            <a href="medicines">Remédio</a>
                         </li>
                         <li className="hover:animate-pulse">
-                            <a href="#">Exame</a>
+                            <a href="exams">Exame</a>
                         </li>
                     </ul>
                 </div>
@@ -65,16 +65,16 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
                             <section className="flex-1 flex items-start justify-center">
                                 <ul className="flex flex-col gap-5 font-bold text-lg">
                                     <li className="text-center hover:animate-pulse">
-                                        <a href="#">Inicio</a>
+                                        <a href="/">Inicio</a>
                                     </li>
                                     <li className="text-center hover:animate-pulse">
-                                        <a href="#">Saúde</a>
+                                        <a href="health">Saúde</a>
                                     </li>
                                     <li className="text-center hover:animate-pulse">
-                                        <a href="#">Remedio</a>
+                                        <a href="medicines">Remedio</a>
                                     </li>
                                     <li className="text-center hover:animate-pulse">
-                                        <a href="#">Exame</a>
+                                        <a href="exams">Exame</a>
                                     </li>
                                 </ul>
                             </section>
