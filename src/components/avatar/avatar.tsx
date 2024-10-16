@@ -60,6 +60,7 @@ export const Avatar: React.FC = () => {
                             {
                                 pets.map(pet => (
                                     <button
+                                        key={pet.id}
                                         onClick={() => { }}
                                         className="flex flex-1 rounded bg-blue justify-center items-center hover:bg-blue/50">
                                         <p className="text-xl md:text-2xl">{pet.name}</p>
