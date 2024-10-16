@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from "next/image";
+import Link from "next/link";
 
 interface HeaderProps {
     title: string
@@ -20,11 +21,13 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
     return (
         <>
             <header className="px-5 pt-5 lg:h-22 xl:h-24 flex items-center justify-items-center bg-transparent">
+                {/* Menu */}
                 <div className="flex flex-1 lg:hidden">
                     <button onClick={handleModalMenu}>
                         <MenuIcon className="size-6 lg:size-10 text-foreground" />
                     </button>
                 </div>
+                {/* Link tela grande */}
                 <div className="hidden lg:flex flex-1 items-center justify-center">
                     <ul className="flex flex-row gap-5 font-md text-xl justify-between text-background">
                         <li className="hover:animate-pulse">
@@ -41,11 +44,15 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
                         </li>
                     </ul>
                 </div>
+                {/* titulo da página */}
                 <div className="bg-blue flex-1 text-center rounded-md max-w-sm lg:max-w-36 p-1 border border-black">
                     <h1 className="text-base text-background font-bold">{title}</h1>
                 </div>
+                {/* avatar perfil */}
                 <div className="flex flex-1 justify-end">
-                    <div className="rounded-full h-10 w-10 bg-slate-600">
+                    <Link
+                        href={'/tutor'}
+                        className="rounded-full h-10 w-10 bg-slate-600">
                         <Image
                             src={'/assets/avatar.png'}
                             alt={"Avatar"}
@@ -53,8 +60,9 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
                             height={50}
                             className="rounded-full bg-cover border border-black"
                         />
-                    </div>
+                    </Link>
                 </div>
+                {/* Menu aberto */}
                 {
                     modalMenu &&
                     <div className="fixed size-full top-0 left-0 bg-black/50 z-50">

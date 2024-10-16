@@ -36,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <head>
+        {/* Link para os icones favicon da aplicação */}
         <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -47,6 +48,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        {/* Ferramenta de analise de dados da vercel */}
         <Analytics />
       </body>
     </html>
