@@ -1,10 +1,12 @@
 import { signIn } from "@/app/auth"
 import Image from "next/image"
+import GoogleIcon from '@mui/icons-material/Google';
 
 export default function Login() {
     return (
-        <div className="w-screen h-screen flex flex-col items-center justify-center bg-blue">
-            <div className="relative w-40 h-40 rounded-full overflow-hidden flex items-center justify-center">
+        <div className="w-screen h-screen flex gap-10 flex-col items-center justify-center bg-blue">
+            <h1 className="text-4xl font-extrabold">Santos Petz</h1>
+            <div className="relative w-40 h-40 rounded-full overflow-hidden flex gap-5 items-center justify-center">
                 <Image
                     src={'/web-app-manifest-512x512.png'}
                     alt="logo"
@@ -17,11 +19,13 @@ export default function Login() {
                     await signIn("google")
                 }}
             >
-                <button
-                    type="submit"
-                    className="bg-background p-2 rounded ">
-                    Faça Login com o Google
-                </button>
+                <div className="flex gap-2 bg-background p-3 rounded-full">
+                    <GoogleIcon />
+                    <button
+                        type="submit">
+                        Faça login com o Google
+                    </button>
+                </div>
             </form>
         </div>
     )
