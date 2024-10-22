@@ -1,7 +1,7 @@
 import { signIn } from "@/app/auth"
 import Image from "next/image"
 
-export const Login: React.FC = () => {
+export default function Login() {
     return (
         <div className="w-screen h-screen flex flex-col items-center justify-center bg-blue">
             <div className="relative w-40 h-40 rounded-full overflow-hidden flex items-center justify-center">
@@ -26,5 +26,3 @@ export const Login: React.FC = () => {
         </div>
     )
 }
-
-export default Login;
