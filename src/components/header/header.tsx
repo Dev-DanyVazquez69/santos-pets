@@ -51,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
                 {/* avatar perfil */}
                 <div className="flex flex-1 justify-end">
                     <Link
-                        href={'/tutor'}
+                        href={'/profile/tutor'}
                         className="rounded-full h-10 w-10 bg-slate-600">
                         <Image
                             src={'/assets/avatar.png'}

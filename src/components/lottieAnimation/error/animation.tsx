@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
-const LottieAnimation = dynamic(() => import("@/components/lottieAnimation/404/lottie"), {
+const LottieAnimation = dynamic(() => import("@/components/lottieAnimation/error/lottie"), {
     ssr: false,
 });
 
-const AnimationLottie404 = () => {
+const AnimationError = () => {
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
@@ -21,4 +21,4 @@ const AnimationLottie404 = () => {
     );
 };
 
-export default AnimationLottie404;
+export default AnimationError;

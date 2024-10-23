@@ -2,7 +2,9 @@ import { Header } from "@/components/header/header";
 import { Avatar } from "@/components/avatar/avatar";
 import { ButtonMenu } from "@/components/buttomMenu/buttonMenu";
 
+
 export default function Home() {
+
   return (
     <main className="min-h-screen flex flex-col bg-gradient-to-b from-background from-0% via-sky-500 via-15% to-background to-65% ">
       <Header title="Inicio" />
