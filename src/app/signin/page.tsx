@@ -1,14 +1,10 @@
 import Image from "next/image"
 import GoogleIcon from '@mui/icons-material/Google';
 import { redirect } from "next/navigation"
-import { signIn, auth, providerMap } from "@/app/auth"
+import { signIn } from "@/app/auth"
 import { AuthError } from "next-auth"
 
-export default function Login(
-    props: {
-        searchParams: { callbackUrl: string | undefined }
-    }
-) {
+export default function Login() {
 
     return (
         <div className="w-screen h-screen flex gap-10 flex-col items-center justify-center bg-blue">
@@ -55,7 +51,7 @@ export default function Login(
                             name="password"
                             id="password" />
                     </label>
-                    <input 
+                    <input
                         className="p-1 bg-foreground rounded text-background font-bold"
                         type="submit"
                         value="Sign In" />
