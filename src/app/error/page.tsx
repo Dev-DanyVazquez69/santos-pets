@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
-import AnimationError from "@/components/lottieAnimation/error/animation"
-import Link from "next/link"
-import { useSearchParams } from "next/navigation"
+import AnimationError from "@/components/lottieAnimation/error/animation";
+import Link from "next/link";
+import { Suspense } from "react"; // Importando o Suspense
+import { useSearchParams } from "next/navigation";
 
 enum Error {
     Configuration = "Configuration",
@@ -16,11 +17,11 @@ const errorMap = {
             <code className="rounded-sm bg-slate-100 p-1 text-xs">Configuration</code>
         </p>
     ),
-}
+};
 
-export default function AuthErrorPage() {
-    const search = useSearchParams()
-    const error = search.get("error") as Error
+function AuthErrorPageContent() {
+    const search = useSearchParams();
+    const error = search.get("error") as Error;
 
     return (
         <div className="flex h-screen w-full flex-col items-center justify-center bg-blue gap-5">
@@ -35,12 +36,18 @@ export default function AuthErrorPage() {
                     {errorMap[error] || "Please contact us if this error persists."}
                 </div>
             </a>
-            <Link
-                href={'/signin'}
-                className="p-3 bg-background rounded-lg">
+            <Link href={'/signin'} className="p-3 bg-background rounded-lg">
                 Tentar Novamente
             </Link>
             <AnimationError />
         </div>
-    )
+    );
+}
+
+export default function AuthErrorPage() {
+    return (
+        <Suspense fallback={<div>Carregando...</div>}>
+            <AuthErrorPageContent />
+        </Suspense>
+    );
 }
