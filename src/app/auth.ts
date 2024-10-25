@@ -2,16 +2,42 @@ import NextAuth from "next-auth"
 import Google from "next-auth/providers/google"
 import Credentials from "next-auth/providers/credentials"
 import type { Provider } from "next-auth/providers"
+import { prisma } from "@/lib/db"
+import { compareSync } from "bcrypt-ts"
 
 const providers: Provider[] = [
   Credentials({
-    credentials: { password: { label: "Password", type: "password" } },
-    authorize(c) {
-      if (c.password !== "password") return null
-      return {
-        id: "test",
-        name: "Test User",
-        email: "test@example.com",
+    credentials: {
+      email: { label: "email", type: "text" },
+      password: { label: "Password", type: "password" },
+    },
+    async authorize(c) {
+      console.log(c)
+      const email = c.email as string
+      const password = c.password as string
+
+      if (!email || !password)
+        throw new Error("Credenciais ausentes")
+
+      try {
+        const user = await prisma.user.findUnique({
+          where: {
+            email
+          }
+
+        })
+
+        if (!user) {
+          throw new Error('Usuário não encotrado')
+        }
+
+        if (!compareSync(password, user.password ?? ""))
+          throw new Error("Credenciais Inválidas")
+
+        return (user)
+
+      } catch (error) {
+        throw new Error(String(error))
       }
     },
   }),
@@ -40,7 +66,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers,
   pages: {
     signIn: "/signin",
-    error: "/error",
+    error: "error",
     signOut: "/signout",
 
   },

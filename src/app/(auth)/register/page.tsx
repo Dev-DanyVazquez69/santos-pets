@@ -1,8 +1,7 @@
 import Image from "next/image"
-import GoogleIcon from '@mui/icons-material/Google';
-import { redirect } from "next/navigation"
+import GoogleIcon from '@mui/icons-material/Google'
 import { signIn } from "@/app/auth"
-import { AuthError } from "next-auth"
+import register from "./_actions/register"
 
 export default function Register() {
 
@@ -20,27 +19,17 @@ export default function Register() {
                 <div className="flex flex-col gap-2">
                     <form
                         className="flex flex-col gap-5 items-center"
-                        action={async (formData) => {
-                            "use server"
-                            try {
-                                await signIn("credentials", formData)
-                            } catch (error) {
-                                if (error instanceof AuthError) {
-                                    return redirect(`error?error=${error.type}`)
-                                }
-                                throw error
-                            }
-                        }}
+                        action={register}
                     >
                         <label
-                            htmlFor="nome"
+                            htmlFor="name"
                             className="flex flex-col items-start justify-center">
                             Nome
                             <input
                                 className="text-foreground p-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400 border-b-2 border-white"
                                 placeholder="Insira seu email"
-                                name="nome"
-                                id="nome" />
+                                name="name"
+                                id="name" />
                         </label>
                         <label
                             htmlFor="email"
@@ -55,7 +44,7 @@ export default function Register() {
                         <label
                             htmlFor="password"
                             className="flex flex-col items-start justify-center">
-                            Password
+                            Senha
                             <input
                                 className="text-foreground p-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400 border-b-2 border-white"
                                 placeholder="Insira sua senha"
@@ -63,9 +52,9 @@ export default function Register() {
                                 id="password" />
                         </label>
                         <input
-                            className="p-1 bg-foreground rounded text-background font-bold"
+                            className="p-2 bg-foreground rounded text-background"
                             type="submit"
-                            value="Sign In" />
+                            value="Cadastrar" />
                     </form>
                     <form
                         action={async () => {

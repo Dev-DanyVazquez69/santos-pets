@@ -1,6 +1,7 @@
 import { Header } from "@/components/header/header";
 import { Avatar } from "@/components/avatar/avatar";
 import { ButtonMenu } from "@/components/buttomMenu/buttonMenu";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -49,6 +50,7 @@ export default function Home() {
             pathImage="/assets/icons/icon-exames.png"
             descriptionImage="Icone botão de Exames" />
         </div>
+        <Link href={"/signin"}>Login</Link>
       </section>
     </main>
   );
