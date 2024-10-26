@@ -3,7 +3,12 @@ import withPWA from 'next-pwa';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['lh3.googleusercontent.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      }
+    ],
   },
     reactStrictMode: false,      // Habilita o modo estrito do React
     swcMinify: true,            // Habilita minificação com SWC para melhor performance

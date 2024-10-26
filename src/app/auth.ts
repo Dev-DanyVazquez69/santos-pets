@@ -4,6 +4,8 @@ import Credentials from "next-auth/providers/credentials"
 import type { Provider } from "next-auth/providers"
 import { prisma } from "@/lib/db"
 import { compareSync } from "bcrypt-ts"
+import { PrismaAdapter } from "@auth/prisma-adapter"
+
 
 const providers: Provider[] = [
   Credentials({
@@ -28,7 +30,7 @@ const providers: Provider[] = [
         })
 
         if (!user) {
-          throw new Error('Usuário não encotrado')
+          throw new Error('Usuário não encontrado')
         }
 
         if (!compareSync(password, user.password ?? ""))
@@ -41,7 +43,9 @@ const providers: Provider[] = [
       }
     },
   }),
-  Google,
+  Google({
+    allowDangerousEmailAccountLinking: true
+  }),
 ]
 
 export const providerMap = providers
@@ -63,11 +67,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return !!auth
     },
   },
+  adapter: PrismaAdapter(prisma),
+  session: {
+    strategy: "jwt"
+  },
   providers,
   pages: {
     signIn: "/signin",
     error: "error",
-    signOut: "/signout",
-
   },
 })

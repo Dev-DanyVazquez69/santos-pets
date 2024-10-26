@@ -1,14 +1,21 @@
 import { Header } from "@/components/header/header";
 import { Avatar } from "@/components/avatar/avatar";
 import { ButtonMenu } from "@/components/buttomMenu/buttonMenu";
-import Link from "next/link";
+import { auth } from "@/app/auth"
+import { redirect } from "next/navigation";
 
+export default async function Home() {
 
-export default function Home() {
+  const session = await auth()
+
+  if (!session)
+    redirect("/signin")
 
   return (
     <main className="min-h-screen flex flex-col bg-gradient-to-b from-background from-0% via-sky-500 via-15% to-background to-65% ">
-      <Header title="Inicio" />
+      <Header
+        title="Inicio"
+        imageAvatar={session.user?.image} />
       <Avatar />
       <section className="flex flex-1">
         {/* Menu Grid */}
@@ -50,7 +57,6 @@ export default function Home() {
             pathImage="/assets/icons/icon-exames.png"
             descriptionImage="Icone botão de Exames" />
         </div>
-        <Link href={"/signin"}>Login</Link>
       </section>
     </main>
   );

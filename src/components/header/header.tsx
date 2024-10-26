@@ -7,10 +7,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface HeaderProps {
-    title: string
+    title: string,
+    imageAvatar?: string | null
 }
 
-export const Header: React.FC<HeaderProps> = ({ title }) => {
+export const Header: React.FC<HeaderProps> = ({ title, imageAvatar }) => {
 
     const [modalMenu, setModalMenu] = useState<boolean>(false)
 
@@ -54,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
                         href={'/profile/tutor'}
                         className="rounded-full h-10 w-10 bg-slate-600">
                         <Image
-                            src={'/assets/avatar.png'}
+                            src={imageAvatar ?? '/assets/avatar.png'}
                             alt={"Avatar"}
                             width={50}
                             height={50}

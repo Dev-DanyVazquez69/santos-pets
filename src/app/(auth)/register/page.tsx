@@ -2,6 +2,8 @@ import Image from "next/image"
 import GoogleIcon from '@mui/icons-material/Google'
 import { signIn } from "@/app/auth"
 import register from "./_actions/register"
+import Link from "next/link"
+import SendIcon from '@mui/icons-material/Send';
 
 export default function Register() {
 
@@ -16,7 +18,7 @@ export default function Register() {
                         fill
                         className="object-cover" />
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-5">
                     <form
                         className="flex flex-col gap-5 items-center"
                         action={register}
@@ -29,7 +31,8 @@ export default function Register() {
                                 className="text-foreground p-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400 border-b-2 border-white"
                                 placeholder="Insira seu email"
                                 name="name"
-                                id="name" />
+                                id="name"
+                                required />
                         </label>
                         <label
                             htmlFor="email"
@@ -39,7 +42,9 @@ export default function Register() {
                                 className="text-foreground p-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400 border-b-2 border-white"
                                 placeholder="Insira seu email"
                                 name="email"
-                                id="email" />
+                                id="email"
+                                type="email"
+                                required />
                         </label>
                         <label
                             htmlFor="password"
@@ -49,13 +54,22 @@ export default function Register() {
                                 className="text-foreground p-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400 border-b-2 border-white"
                                 placeholder="Insira sua senha"
                                 name="password"
-                                id="password" />
+                                id="password"
+                                type="password"
+                                required />
                         </label>
-                        <input
-                            className="p-2 bg-foreground rounded text-background"
-                            type="submit"
-                            value="Cadastrar" />
+                        <div className="p-2 bg-foreground font-extrabold border-2 border-background rounded text-background flex gap-2 items-center justify-center text-sm">
+                            <input
+                                type="submit"
+                                value="CADASTRAR" />
+                            <SendIcon />
+                        </div>
                     </form>
+                    <Link
+                        className="self-center font-extralight text-xs"
+                        href={"/signin"}>
+                        Já possui conta?
+                    </Link>
                     <form
                         action={async () => {
                             "use server"

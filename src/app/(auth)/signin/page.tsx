@@ -1,8 +1,9 @@
 import Image from "next/image"
 import GoogleIcon from '@mui/icons-material/Google';
-import { redirect } from "next/navigation"
 import { signIn } from "@/app/auth"
-import { AuthError } from "next-auth"
+import Link from "next/link";
+import SendIcon from '@mui/icons-material/Send';
+import login from "./_actions/signin";
 
 export default function Login() {
 
@@ -17,20 +18,10 @@ export default function Login() {
                         fill
                         className="object-cover" />
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-5">
                     <form
                         className="flex flex-col gap-5 items-center"
-                        action={async (formData) => {
-                            "use server"
-                            try {
-                                await signIn("credentials", formData)
-                            } catch (error) {
-                                if (error instanceof AuthError) {
-                                    return redirect(`error?error=${error.type}`)
-                                }
-                                throw error
-                            }
-                        }}
+                        action={login}
                     >
                         <label
                             htmlFor="email"
@@ -40,7 +31,9 @@ export default function Login() {
                                 className="text-foreground p-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400 border-b-2 border-white"
                                 placeholder="Insira seu email"
                                 name="email"
-                                id="email" />
+                                id="email"
+                                type="email"
+                                required />
                         </label>
                         <label
                             htmlFor="password"
@@ -50,13 +43,22 @@ export default function Login() {
                                 className="text-foreground p-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400 border-b-2 border-white"
                                 placeholder="Insira sua senha"
                                 name="password"
-                                id="password" />
+                                id="password"
+                                type="password"
+                                required />
                         </label>
-                        <input
-                            className="p-1 bg-foreground rounded text-background font-bold"
-                            type="submit"
-                            value="Sign In" />
+                        <div className="p-2 bg-foreground font-extrabold border-2 border-background rounded text-background flex gap-2 items-center justify-center text-sm">
+                            <input
+                                type="submit"
+                                value="ENTRAR" />
+                            <SendIcon />
+                        </div>
                     </form>
+                    <Link
+                        className="self-center font-extralight text-xs"
+                        href={"/register"}>
+                        Ainda não possui conta?
+                    </Link>
                     <form
                         action={async () => {
                             "use server"

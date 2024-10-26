@@ -1,7 +1,7 @@
 "use server";
 import { prisma } from '@/lib/db';
 import { hashSync } from 'bcrypt-ts';
-import { permanentRedirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 const register = async (formData: FormData) => {
     const name = formData.get('name') as string;
@@ -11,32 +11,27 @@ const register = async (formData: FormData) => {
     if (!name || !email || !password) {
         throw new Error('Todos os campos devem estar preenchidos');
     }
-
-    try {
-        // Verificar se o usuário já existe
-        const emailExists = await prisma.user.findFirst({
-            where: {
-                email
-            }
-        });
-
-        if (emailExists) {
-            throw new Error("Email já cadastrado no sistema");
+    // Verificar se o usuário já existe
+    const emailExists = await prisma.user.findFirst({
+        where: {
+            email
         }
+    });
 
-        // Criar o usuário
-        await prisma.user.create({
-            data: {
-                name,
-                email,
-                password: hashSync(password)
-            }
-        })
-        permanentRedirect("/")
-        
-    } catch (error) {
-        console.error(error);
+    if (emailExists) {
+        throw new Error('Email já cadastrado no sistema');
     }
+
+    // Criar o usuário
+    await prisma.user.create({
+        data: {
+            name,
+            email,
+            password: hashSync(password)
+        }
+    })
+    redirect("/")
+
 };
 
 export default register;
