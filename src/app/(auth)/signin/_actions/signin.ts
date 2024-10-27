@@ -14,7 +14,7 @@ const login = async (FormData: FormData) => {
         if (error instanceof AuthError) {
             if (error.type === 'CredentialsSignin')
                 error.message = 'credenciais inválidas'
-            throw error
+            throw new Error(String(error))
         }
     }
     redirect("/")

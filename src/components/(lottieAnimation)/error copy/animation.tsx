@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
-const LottieAnimation = dynamic(() => import("@/components/lottieAnimation/error/lottie"), {
+const LottieAnimation = dynamic(() => import("@/components/(lottieAnimation)/loading/animation"), {
     ssr: false,
 });
 
-const AnimationError = () => {
+const AnimationLoading = () => {
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
@@ -15,10 +15,10 @@ const AnimationError = () => {
     }, []);
 
     return (
-        <div className="mx-3">
+        <div className="mx-5">
             {isClient && <LottieAnimation />} {/* Só renderiza no cliente */}
         </div>
     );
 };
 
-export default AnimationError;
+export default AnimationLoading;
