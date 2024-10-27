@@ -2,20 +2,16 @@ import { Header } from "@/components/header/header";
 import { Avatar } from "@/components/avatar/avatar";
 import { ButtonMenu } from "@/components/buttomMenu/buttonMenu";
 import { auth } from "@/app/auth"
-import { redirect } from "next/navigation";
 
 export default async function Home() {
 
   const session = await auth()
 
-  if (!session)
-    redirect("/signin")
-
   return (
     <main className="min-h-screen flex flex-col bg-gradient-to-b from-background from-0% via-sky-500 via-15% to-background to-65% ">
       <Header
         title="Inicio"
-        imageAvatar={session.user?.image} />
+        imageAvatar={session?.user?.image} />
       <Avatar />
       <section className="flex flex-1">
         {/* Menu Grid */}
