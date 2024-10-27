@@ -10,5 +10,5 @@ export default auth((req) => {
 })
 
 export const config = {
-    matcher: ['/((?!public|_next/static|_next/image|signin|register).*)'],
+    matcher: ['/((?!^/public|^/_next/static|^/_next/image|^/signin|^/register).*)'],
 }
