@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({ title, imageAvatar }) => {
                 </div>
                 {/* Link tela grande */}
                 <div className="hidden lg:flex flex-1 items-center justify-center">
-                    <ul className="flex flex-row gap-5 font-md text-xl justify-between text-background">
+                    <ul className="flex flex-row gap-5 font-md text-xl justify-between">
                         <li className="hover:animate-pulse">
                             <a href="/">Inicio</a>
                         </li>
@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ title, imageAvatar }) => {
                 </div>
                 {/* titulo da página */}
                 <div className="bg-blue flex-1 text-center rounded-md max-w-sm lg:max-w-36 p-1 border border-black">
-                    <h1 className="text-base text-background font-bold">{title}</h1>
+                    <h1 className="text-base text-white font-bold">{title}</h1>
                 </div>
                 {/* avatar perfil */}
                 <div className="flex flex-1 justify-end">
@@ -94,9 +94,12 @@ export const Header: React.FC<HeaderProps> = ({ title, imageAvatar }) => {
                                         height={35}
                                     />
                                 </button>
-                                <button className="w-fit bg-background h-fit p-2 rounded hover:p-3 animate-bounce">
+
+                                <Link
+                                    href={"/signout"} 
+                                    className="w-fit bg-background h-fit p-2 rounded hover:p-3 animate-bounce">
                                     <p>Logout</p>
-                                </button>
+                                </Link>
                             </section>
                         </div>
                     </div>

@@ -48,7 +48,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <main className="min-h-screen flex flex-col bg-gradient-to-b from-background from-0% via-sky-500 via-15% to-background to-65% ">
+          {children}
+        </main>
         {/* Ferramenta de analise de dados da vercel */}
         <Analytics />
       </body>

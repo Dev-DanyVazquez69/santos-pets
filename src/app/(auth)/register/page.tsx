@@ -29,9 +29,10 @@ export default function Register() {
                             Nome
                             <input
                                 className="text-foreground p-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-400 border-b-2 border-white"
-                                placeholder="Insira seu email"
+                                placeholder="Insira seu nome"
                                 name="name"
                                 id="name"
+                                type="text"
                                 required />
                         </label>
                         <label
@@ -56,6 +57,8 @@ export default function Register() {
                                 name="password"
                                 id="password"
                                 type="password"
+                                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                                title="A senha deve ter pelo menos 8 caracteres, incluindo letras, números e um caractere especial (@, $, !, %, *, ?, &)"
                                 required />
                         </label>
                         <div className="p-2 bg-foreground font-extrabold border-2 border-background rounded text-background flex gap-2 items-center justify-center text-sm">
