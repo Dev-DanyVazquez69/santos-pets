@@ -5,15 +5,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from "next/image";
 import Link from "next/link";
+import { useUserSession } from "@/context/session-user-context";
 
 interface HeaderProps {
     title: string,
-    imageAvatar?: string | null
 }
 
-export const Header: React.FC<HeaderProps> = ({ title, imageAvatar }) => {
+export const Header: React.FC<HeaderProps> = ({ title }) => {
 
     const [modalMenu, setModalMenu] = useState<boolean>(false)
+    const { user } = useUserSession()
 
     const handleModalMenu = () => {
         setModalMenu(!modalMenu)
@@ -55,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({ title, imageAvatar }) => {
                         href={'/profile/tutor'}
                         className="rounded-full h-10 w-10 bg-slate-600">
                         <Image
-                            src={imageAvatar ?? '/assets/avatar.png'}
+                            src={user?.user?.image ?? '/assets/avatar.png'}
                             alt={"Avatar"}
                             width={50}
                             height={50}
@@ -96,7 +97,7 @@ export const Header: React.FC<HeaderProps> = ({ title, imageAvatar }) => {
                                 </button>
 
                                 <Link
-                                    href={"/signout"} 
+                                    href={"/signout"}
                                     className="w-fit bg-background h-fit p-2 rounded hover:p-3 animate-bounce">
                                     <p>Logout</p>
                                 </Link>

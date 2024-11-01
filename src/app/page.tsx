@@ -1,17 +1,13 @@
 import { Header } from "@/components/header/header";
 import { AvatarPet } from "@/components/(avatar)/avatar-pet/avatar-pet";
 import { ButtonMenu } from "@/components/buttomMenu/buttonMenu";
-import { auth } from "@/app/auth"
 
 export default async function Home() {
-
-  const session = await auth()
 
   return (
     <>
       <Header
-        title="Inicio"
-        imageAvatar={session?.user?.image} />
+        title="Inicio" />
       <AvatarPet />
       <section className="flex flex-1">
         {/* Menu Grid */}
