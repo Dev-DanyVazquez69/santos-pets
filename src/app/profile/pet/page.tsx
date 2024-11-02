@@ -11,8 +11,7 @@ const ProfilePet: React.FC = async () => {
     return (
         <>
             <Header
-                title="Perfil do Pet"
-                imageAvatar={session?.user.image} />
+                title="Perfil do Pet" />
             <AvatarPet />
             <main className="flex flex-col flex-1 items-center ">
                 <div className="flex flex-1 flex-col w-full max-w-4xl px-5 items-center justify-around text-white">
