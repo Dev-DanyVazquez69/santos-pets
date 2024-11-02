@@ -1,61 +1,62 @@
 import { Header } from "@/components/header/header";
 import ListItem from "@/components/list-items/list-item";
+import { ItemListProps } from "@/interfaces/health-list";
 import Image from "next/image";
 
 const Exams: React.FC = async () => {
 
-    const healthCats = {
+    const healthCats: ItemListProps = {
         health: [
             {
                 id: "0001",
-                type: "vaccine",
+                type: "vaccines" as "vaccines" | "exams" | "consultations" | "medicines",
                 data: [
                     {
                         id: "001",
                         title: "vacina contra raiva",
-                        status: "pendente",
+                        status: "pendente" as "pendente" | "concluido",
                         date: new Date()
                     },
                     {
                         id: "002",
                         title: "vacina contra xxx",
-                        status: "pendente",
+                        status: "pendente" as "pendente" | "concluido",
                         date: new Date()
                     },
                 ]
             },
             {
                 id: "0002",
-                type: "exam",
+                type: "exams" as "vaccines" | "exams" | "consultations" | "medicines",
                 data: [
                     {
                         id: "001",
                         title: "exame de sangue",
-                        status: "pendente",
+                        status: "pendente" as "pendente" | "concluido",
                         date: new Date()
                     },
                     {
                         id: "002",
                         title: "exame da patinha",
-                        status: "pendente",
+                        status: "pendente" as "pendente" | "concluido",
                         date: new Date()
                     },
                 ]
             },
             {
                 id: "0003",
-                type: "medicine",
+                type: "medicines" as "vaccines" | "exams" | "consultations" | "medicines",
                 data: [
                     {
                         id: "001",
                         title: "paracetamol",
-                        status: "pendente",
+                        status: "pendente" as "pendente" | "concluido",
                         date: new Date()
                     },
                     {
                         id: "002",
                         title: "ibuprofeno",
-                        status: "pendente",
+                        status: "pendente" as "pendente" | "concluido",
                         date: new Date()
                     },
                 ]
@@ -65,12 +66,12 @@ const Exams: React.FC = async () => {
     }
 
     return (
-        <div className="w-screen h-screen flex flex-col">
+        <div className="w-screen h-screen flex flex-col bg-background">
             <Header
                 title="Saúde"
             />
             <main className="size-full p-6 md:p-20">
-                <div className="bg-black/45 size-full rounded-2xl">
+                <div className= "size-full rounded-2xl">
                     <header className="relative gap-5 p-5 flex flex-col items-center justify-evenly">
                         <Image
                             alt="icone de saúde"
@@ -81,9 +82,8 @@ const Exams: React.FC = async () => {
                         />
                         <h1 className="text-foreground text-base font-extrabold md:text-2xl">REGISTROS DE SAÚDE</h1>
                     </header>
-                    <ListItem 
-                    health={healthCats}/>
-                        
+                    <ListItem
+                        health={healthCats.health} />
                 </div>
             </main>
         </div>
