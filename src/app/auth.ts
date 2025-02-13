@@ -19,8 +19,7 @@ const providers: Provider[] = [
       const password = c.password as string
 
       if (!email || !password)
-        throw new Error("Credenciais ausentes")
-
+        return null
       try {
         const user = await prisma.user.findUnique({
           where: {
@@ -30,11 +29,11 @@ const providers: Provider[] = [
         })
 
         if (!user) {
-          throw new Error('Usuário não encontrado')
+          return null
         }
 
         if (!compareSync(password, user.password ?? ""))
-          throw new Error("Credenciais Inválidas")
+          return null
 
         return (user)
 
@@ -63,7 +62,6 @@ export const providerMap = providers
 export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
     authorized: async ({ auth }) => {
-      //Usuários logados são autenticados, caso contrário, redirecionam para a página de login      return !!auth
       return !!auth
     },
   },

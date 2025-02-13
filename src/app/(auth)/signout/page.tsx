@@ -21,10 +21,10 @@ export default function Login() {
                         action={logout}
                     >
                         <p>Tem certeza que deseja sair da sua conta?</p>
-                        <div className="p-2 bg-foreground font-extrabold border-2 border-background rounded text-background flex gap-2 items-center justify-center text-sm">
-                            <input
+                        <div className="p-1 bg-foreground font-extrabold border-2 border-background rounded text-background flex gap-2 items-center justify-center text-sm">
+                            <button
                                 type="submit"
-                                value="SAIR" />
+                            >Sair</button>
                             <SendIcon />
                         </div>
                     </form>

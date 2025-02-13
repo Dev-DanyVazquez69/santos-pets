@@ -61,10 +61,11 @@ export default function Register() {
                                 title="A senha deve ter pelo menos 8 caracteres, incluindo letras, números e um caractere especial (@, $, !, %, *, ?, &)"
                                 required />
                         </label>
-                        <div className="p-2 bg-foreground font-extrabold border-2 border-background rounded text-background flex gap-2 items-center justify-center text-sm">
-                            <input
-                                type="submit"
-                                value="CADASTRAR" />
+                        <div className="p-1 bg-foreground font-extrabold border-2 border-background rounded text-background flex gap-2 items-center justify-center text-sm">
+                            <button
+                                type="submit">
+                                Cadastrar
+                            </button>
                             <SendIcon />
                         </div>
                     </form>
