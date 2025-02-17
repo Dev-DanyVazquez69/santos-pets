@@ -32,13 +32,12 @@ export default function ErrorPage({
                     >
                         <p>Tentar novamente?</p>
                         <p className="text-center">{String(error)}</p>
-                        <div className="cursor-pointer p-2 bg-foreground font-extrabold border-2 border-background rounded text-background flex gap-2 items-center justify-center text-sm">
-                            <button
-                                type="submit">
-                                Tentar novamente
-                            </button>
+                        <button
+                            type="submit"
+                            className="cursor-pointer p-2 bg-foreground font-extrabold border-2 border-background rounded text-background flex gap-2 items-center justify-center text-sm">
+                            Tentar novamente
                             <SendIcon />
-                        </div>
+                        </button>
                     </form>
                 </div>
             </div>

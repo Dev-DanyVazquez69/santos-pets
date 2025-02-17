@@ -42,13 +42,14 @@ const CredentialsLoginForm: React.FC = () => {
                         pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                         required />
                 </label>
-                <div className="p-1 bg-foreground font-extrabold border-2 border-background rounded text-background flex gap-2 items-center justify-center text-sm">
-                    <button
-                        type="submit"
-                        disabled={isPending}>Entrar</button>
+                <button
+                    disabled={isPending}
+                    type="submit"
+                    className="p-1 bg-foreground font-extrabold border-2 border-background rounded text-background flex gap-2 items-center justify-center text-sm">
+                    Entrar
                     <SendIcon />
-                </div>
-            </form>
+                </button>
+            </form >
             {
                 state &&
                 <div className='bg-red-600 p-1 rounded-3xl'>

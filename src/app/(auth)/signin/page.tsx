@@ -33,14 +33,12 @@ export default function Login() {
                             await signIn("google")
                         }}
                     >
-                        <div className="flex gap-2 bg-background p-2 rounded-full justify-center">
+                        <button 
+                        type="submit"
+                        className="text-xs flex gap-2 bg-background p-2 rounded-full justify-center items-center">
                             <GoogleIcon />
-                            <button
-                                className="text-xs"
-                                type="submit">
-                                Faça login com o Google
-                            </button>
-                        </div>
+                            Faça login com o Google
+                        </button>
                     </form>
                 </div>
             </div>
